@@ -6,13 +6,23 @@ const MyChatBox = () => {
   let [messages, setMessages] = useState(JSON.parse(localStorage.getItem("chat")) || []);
 
   let handleMsg1 = () => {
-    setMessages([...messages, { text: message, sender: "my" }]);
-    setMessage("")
-    localStorage.setItem("chat", JSON.stringify(messages))
+    if (message) {
+      setMessages([...messages, { text: message, sender: "my" }]);
+      setMessage("")
+      localStorage.setItem("chat", JSON.stringify(messages))
+    }
+    else {
+      alert("Please type any msg")
+    }
   }
   let handleMsg2 = () => {
-    setMessages([...messages, { text: message2, sender: "other" }]);
-    setMessage2("")
+    if (message2) {
+      setMessages([...messages, { text: message2, sender: "other" }]);
+      setMessage2("")
+    }
+    else {
+      alert("Please type any msg")
+    }
   }
   localStorage.setItem("chat", JSON.stringify(messages))
 
