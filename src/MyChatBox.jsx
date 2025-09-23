@@ -5,7 +5,8 @@ const MyChatBox = () => {
   let [message2, setMessage2] = useState("")
   let [messages, setMessages] = useState(JSON.parse(localStorage.getItem("chat")) || []);
 
-  let handleMsg1 = () => {
+  let handleMsg1 = (e) => {
+    e.preventDefault()
     if (message) {
       setMessages([...messages, { text: message, sender: "my" }]);
       setMessage("")
@@ -15,7 +16,8 @@ const MyChatBox = () => {
       alert("Please type any msg")
     }
   }
-  let handleMsg2 = () => {
+  let handleMsg2 = (e) => {
+    e.preventDefault()
     if (message2) {
       setMessages([...messages, { text: message2, sender: "other" }]);
       setMessage2("")
@@ -44,12 +46,12 @@ const MyChatBox = () => {
           </div>
         </div>
         <div className="bg-gray-800 border-t border-gray-700 p-4 rounded-b-4xl">
-          <div className="flex gap-2">
+          <form className="flex gap-2" action="">
             <div className="flex-1 bg-gray-700 rounded-lg border border-gray-600 px-4 py-2">
               <input type="text" onChange={(e) => setMessage(e.target.value)} value={message} placeholder="Type a message..." className="w-full bg-transparent text-white placeholder-gray-400 outline-none text-sm" />
             </div>
             <button onClick={handleMsg1} className="bg-blue-600 hover:bg-blue-700 cursor-pointer text-white px-4 py-2 rounded-lg transition-colors duration-200 text-sm font-medium">Send</button>
-          </div>
+          </form>
         </div>
       </div>
 
@@ -69,12 +71,12 @@ const MyChatBox = () => {
           </div>
         </div>
         <div className="bg-gray-800 border-t border-gray-700 p-4 rounded-b-4xl">
-          <div className="flex gap-2">
+          <form action="" className="flex gap-2">
             <div className="flex-1 bg-gray-700 rounded-lg border border-gray-600 px-4 py-2">
               <input type="text" onChange={(e) => setMessage2(e.target.value)} value={message2} placeholder="Type a message..." className="w-full bg-transparent text-white placeholder-gray-400 outline-none text-sm" />
             </div>
             <button onClick={handleMsg2} className="bg-blue-600 hover:bg-blue-700 cursor-pointer text-white px-4 py-2 rounded-lg transition-colors duration-200 text-sm font-medium">Send</button>
-          </div>
+          </form>
         </div>
       </div>
     </>
