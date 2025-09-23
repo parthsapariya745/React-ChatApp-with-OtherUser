@@ -34,7 +34,7 @@ const MyChatBox = () => {
         <div className="bg-gray-800 border-b border-gray-700 p-4 text-center rounded-t-4xl">
           <h1 className="text-xl font-semibold text-white">My Messages</h1>
         </div>
-        <div className="flex-1 overflow-y-auto p-4 space-y-4">
+        <div className="flex-1 overflow-y-auto p-4 space-y-4 custom-scrollbar">
           <div className="max-w-full">
             {messages.map((e, i) => (
               <div key={i} className={`flex ${e.sender === "my" ? "justify-end" : "justify-start"}`}>
@@ -59,7 +59,7 @@ const MyChatBox = () => {
         <div className="bg-gray-800 border-b border-gray-700 p-4 text-center rounded-t-4xl">
           <h1 className="text-xl font-semibold text-white">Other User</h1>
         </div>
-        <div className="flex-1 overflow-y-auto p-4 space-y-4">
+        <div className="flex-1 overflow-y-auto p-4 space-y-4 custom-scrollbar">
           <div className="max-w-full">
             {messages.map((e, i) => (
               <div key={i} className={`flex ${e.sender === "other" ? "justify-end" : "justify-start"}`}>
